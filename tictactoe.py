@@ -140,10 +140,6 @@ class TicTacToe:
                 break
 
     def medium_level(self, state, sign):
-        """By default value equal medium sign(X or O).
-        But if value is not None then processor will put medium value
-        to block opponent.
-        """
         for x, y in self.empty_cells(state):
             state[x][y] = sign
             if self.check_win(state, sign):
@@ -159,8 +155,6 @@ class TicTacToe:
                 self.add_val(x, y, sign)
                 break
 
-
-# AI part
     def minimax(self, state, depth, player):
         if player == COMP:
             best = [-1, -1, -10000]
@@ -189,13 +183,13 @@ class TicTacToe:
     def ai_turn(self, level, sign):
         """
         level: ai level complexity
-        sign: X or O
+        sign: 1 or -1 (X or O respectively)
         """
         depth = len(self.empty_cells(self.grid))
         if depth == 0 or self.game_over(self.grid):
             return
         print(f'Making move level "{level}"')
-        if level == 'easy':                   # levels
+        if level == 'easy':
             self.easy_level(sign)
         elif level == 'medium':
             self.medium_level(self.grid, sign)
@@ -211,7 +205,7 @@ class TicTacToe:
 
     def human_turn(self, sign):
         """
-        sign: X or O
+        sign: 1 or -1 (X or O respectively)
         """
         depth = len(self.empty_cells(self.grid))
         if depth == 0 or self.game_over(self.grid):
@@ -223,7 +217,7 @@ class TicTacToe:
                 print('You should enter two numbers!')
             if all((3 > x, y >= 0)):
                 if self.valid_move(x, y):
-                    self.add_val(x, y, sign)  # Need to change later. The placement of hyperskill is really awful.
+                    self.add_val(x, y, sign)
                     break
                 else:
                     print('This cell is occupied! Choose another one!')
