@@ -7,7 +7,7 @@ Game have 4 modes:
 * hard,
 * user.
 
-Hard level works using **minimax algorithm**.
+Hard level works using **Minimax Algorithm**.
 
 To put X or O in cell you need type row and column (from 1 to 3).
 
